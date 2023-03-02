@@ -10,19 +10,22 @@ services:
     ports:
       - "8080:8080"
 
-    # The default Tomcat environment in the image is:
-    # CATALINA_BASE:   /usr/local/tomcat
-    # CATALINA_HOME:   /usr/local/tomcat
-    # CATALINA_TMPDIR: /usr/local/tomcat/temp
-    # JRE_HOME:        /usr
-    # CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
+  # The default Tomcat environment in the image is:
+  # CATALINA_BASE:   /usr/local/tomcat
+  # CATALINA_HOME:   /usr/local/tomcat
+  # CATALINA_TMPDIR: /usr/local/tomcat/temp
+  # JRE_HOME:        /usr
+  # CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
   tomcat:
     image: "tomcat"
 
-  # ms_sql_server:
-  #   image: "mcr.microsoft.com/mssql/server"
-  #   environment:
-  #     - "ACCEPT_EULA=Y"
-  #     - "MSSQL_SA_PASSWORD=@thinh123"
-  #   ports:
-  #     - "1433:1433"
+  # connect to mssql using sqlcmd:
+  # command sqlcmd _S localhost,port-I sa
+  # default port: 1433
+  ms_sql_server:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      - "ACCEPT_EULA=Y"
+      - "MSSQL_SA_PASSWORD=root:ROOT"
+    ports:
+      - "1433:1433"
