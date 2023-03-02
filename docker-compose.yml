@@ -6,7 +6,6 @@ services:
     command: catalina.sh run
     depends_on:
       - tomcat
-      - maven
       # - ms_sql_server
     ports:
       - "8080:8080"
@@ -19,9 +18,6 @@ services:
     # CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
   tomcat:
     image: "tomcat"
-
-  maven:
-    image: "maven"
 
   # ms_sql_server:
   #   image: "mcr.microsoft.com/mssql/server"
