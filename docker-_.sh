@@ -1,2 +1,2 @@
-sh ./build.sh
-sh ./run.sh
+sh ./docker-build.sh
+sh ./docker-run.sh
